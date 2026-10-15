@@ -1,0 +1,36 @@
+R_DEF: Internal format may change without notice
+local
+color background
+color divider
+color on_primary
+color on_surface
+color primary
+color primary_variant
+color status_green
+color status_orange
+color status_red
+color surface
+color text_secondary
+drawable ic_launcher_foreground
+id btnBatteryOptimization
+id btnRefreshDevices
+id btnRequestShizuku
+id btnTestStartHotspot
+id btnTestStopHotspot
+id spDelay
+id spDevices
+id switchService
+id tvLogs
+id tvShizukuStatus
+layout activity_main
+layout spinner_dropdown_item
+layout spinner_item
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+string hotspot_off
+string hotspot_on
+string service_monitoring
+string service_no_device
+string service_title
+style Theme.PuraHotspot

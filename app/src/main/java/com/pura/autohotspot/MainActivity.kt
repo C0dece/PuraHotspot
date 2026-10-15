@@ -150,7 +150,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupDelaySpinner() {
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, delayLabels)
+        val adapter = ArrayAdapter(this, R.layout.spinner_item, delayLabels).apply {
+            setDropDownViewResource(R.layout.spinner_dropdown_item)
+        }
         binding.spDelay.adapter = adapter
 
         val currentDelay = prefs.disconnectDelaySeconds
@@ -239,7 +241,9 @@ class MainActivity : AppCompatActivity() {
             deviceNames.add("Нет сопряженных устройств")
         }
 
-        val spinnerAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, deviceNames)
+        val spinnerAdapter = ArrayAdapter(this, R.layout.spinner_item, deviceNames).apply {
+            setDropDownViewResource(R.layout.spinner_dropdown_item)
+        }
         binding.spDevices.adapter = spinnerAdapter
 
         val savedAddress = prefs.targetDeviceAddress

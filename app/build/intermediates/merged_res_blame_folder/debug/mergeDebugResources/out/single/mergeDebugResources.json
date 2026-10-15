@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "C:\\Users\\codece\\.gradle\\daemon\\8.6\\com.pura.autohotspot.app-debug-31:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\codece\\.gradle\\daemon\\8.6\\com.pura.autohotspot.app-main-33:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\codece\\.gradle\\daemon\\8.6\\com.pura.autohotspot.app-debug-31:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\codece\\.gradle\\daemon\\8.6\\com.pura.autohotspot.app-main-33:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\codece\\.gradle\\daemon\\8.6\\com.pura.autohotspot.app-debug-31:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\codece\\.gradle\\daemon\\8.6\\com.pura.autohotspot.app-main-33:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "com.pura.autohotspot.app-debug-31:/layout_spinner_dropdown_item.xml.flat",
+        "source": "com.pura.autohotspot.app-main-33:/layout/spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "com.pura.autohotspot.app-debug-31:/layout_spinner_item.xml.flat",
+        "source": "com.pura.autohotspot.app-main-33:/layout/spinner_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\codece\\.gradle\\daemon\\8.6\\com.pura.autohotspot.app-debug-31:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\codece\\.gradle\\daemon\\8.6\\com.pura.autohotspot.app-main-33:\\drawable\\ic_launcher_foreground.xml"
+    }
+]

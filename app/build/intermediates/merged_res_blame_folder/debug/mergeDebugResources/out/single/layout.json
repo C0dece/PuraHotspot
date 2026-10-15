@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "com.pura.autohotspot.app-mergeDebugResources-30:/layout/spinner_item.xml",
+        "source": "com.pura.autohotspot.app-main-33:/layout/spinner_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\codece\\.gradle\\daemon\\8.6\\com.pura.autohotspot.app-mergeDebugResources-30:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\codece\\.gradle\\daemon\\8.6\\com.pura.autohotspot.app-main-33:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "com.pura.autohotspot.app-mergeDebugResources-30:/layout/spinner_dropdown_item.xml",
+        "source": "com.pura.autohotspot.app-main-33:/layout/spinner_dropdown_item.xml"
+    }
+]
