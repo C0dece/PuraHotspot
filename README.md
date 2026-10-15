@@ -1,5 +1,11 @@
 # Pura Hotspot (Huawei Auto Hotspot)
 
+<p align="center">
+  <img src="screenshot.png" width="300" alt="Pura Hotspot Screenshot" />
+</p>
+
+[📥 Скачать готовый APK (Релиз v1.0.0)](https://github.com/C0dece/PuraHotspot/releases/download/v1.0.0/PuraHotspot.apk)
+
 Легковесная автономная утилита для **Huawei Pura 70** (EMUI 14.2 / HarmonyOS), которая автоматически:
 1. **Включает личную точку доступа (Wi-Fi Hotspot)** при подключении к выбранному Bluetooth-устройству (например, автомагнитоле).
 2. **Выключает точку доступа** при отключении от Bluetooth с настраиваемой задержкой (защита от кратковременных обрывов при перезапуске зажигания).
