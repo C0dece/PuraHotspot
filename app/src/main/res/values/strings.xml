@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Pura Hotspot</string>
+    <string name="service_title">Pura Hotspot активен</string>
+    <string name="service_monitoring">Мониторинг: %s</string>
+    <string name="service_no_device">Устройство не выбрано</string>
+    <string name="hotspot_on">Точка доступа: ВКЛ</string>
+    <string name="hotspot_off">Точка доступа: ВЫКЛ</string>
+</resources>
