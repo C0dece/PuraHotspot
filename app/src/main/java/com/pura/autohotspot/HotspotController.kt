@@ -24,20 +24,9 @@ object HotspotController {
         val logBuilder = StringBuilder()
         logBuilder.append("[$actionName]\n")
 
-        // Priority 1: Check Accessibility Service (No PC, No Shizuku required, works locked!)
-        if (PuraAccessibilityService.isRunning()) {
-            logBuilder.append("Движок: Служба доступности (Шторка переключателей)\n")
-            val (success, accLogs) = PuraAccessibilityService.toggleHotspot(enabled, context)
-            logBuilder.append(accLogs)
-            if (success) {
-                return Pair(true, logBuilder.toString())
-            }
-            logBuilder.append("Служба доступности не смогла переключить, пробуем альтернативы...\n")
-        }
-
-        // Priority 2: Check Shizuku (if user started it via ADB)
+        // Priority 1: Check Shizuku (Pure programmatic ADB shell UID 2000, 100% silent, works locked, zero UI)
         if (ShizukuManager.hasPermission()) {
-            logBuilder.append("Движок: Shizuku (ADB Shell)\n")
+            logBuilder.append("Движок: Shizuku (ADB Shell - программный режим)\n")
             val commands = if (enabled) ENABLE_COMMANDS else DISABLE_COMMANDS
             for (cmd in commands) {
                 logBuilder.append("> $cmd\n")
@@ -48,10 +37,22 @@ object HotspotController {
                 logBuilder.append("\n")
 
                 if (result.isSuccess) {
-                    logBuilder.append("Успешно выполнено через Shizuku: $cmd\n")
+                    logBuilder.append("Успешно выполнено программно через Shizuku: $cmd\n")
                     return Pair(true, logBuilder.toString())
                 }
             }
+            logBuilder.append("Shizuku не смог выполнить команду, пробуем альтернативы...\n")
+        }
+
+        // Priority 2: Fallback to Accessibility Service (Quick Settings shade)
+        if (PuraAccessibilityService.isRunning()) {
+            logBuilder.append("Движок: Служба доступности (Шторка переключателей)\n")
+            val (success, accLogs) = PuraAccessibilityService.toggleHotspot(enabled, context)
+            logBuilder.append(accLogs)
+            if (success) {
+                return Pair(true, logBuilder.toString())
+            }
+            logBuilder.append("Служба доступности не смогла переключить.\n")
         }
 
         // Neither engine is ready
