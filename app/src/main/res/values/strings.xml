@@ -5,4 +5,5 @@
     <string name="service_no_device">Устройство не выбрано</string>
     <string name="hotspot_on">Точка доступа: ВКЛ</string>
     <string name="hotspot_off">Точка доступа: ВЫКЛ</string>
+    <string name="accessibility_service_desc">Автоматическое переключение точки доступа в шторке при подключении к автомобилю.</string>
 </resources>

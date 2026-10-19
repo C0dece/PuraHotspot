@@ -56,7 +56,7 @@ class BluetoothReceiver(
                     onStatusUpdate?.invoke("Подключен $deviceName. Включение хотспота...", null)
 
                     scope.launch(Dispatchers.IO) {
-                        val (success, logs) = HotspotController.setHotspotEnabled(true)
+                        val (success, logs) = HotspotController.setHotspotEnabled(true, context)
                         val status = if (success) "Точка доступа ВКЛ ($deviceName)" else "Ошибка включения"
                         onStatusUpdate?.invoke("$status\n$logs", success)
                         if (wakeLock.isHeld) wakeLock.release()
@@ -80,7 +80,7 @@ class BluetoothReceiver(
                         pendingDisconnectJob = scope.launch(Dispatchers.IO) {
                             delay(delaySec * 1000L)
                             onStatusUpdate?.invoke("Задержка истекла. Выключение точки доступа...", null)
-                            val (success, logs) = HotspotController.setHotspotEnabled(false)
+                            val (success, logs) = HotspotController.setHotspotEnabled(false, context)
                             val status = if (success) "Точка доступа ВЫКЛ" else "Ошибка выключения"
                             onStatusUpdate?.invoke("$status\n$logs", !success)
                             if (wakeLock.isHeld) wakeLock.release()
@@ -88,7 +88,7 @@ class BluetoothReceiver(
                     } else {
                         onStatusUpdate?.invoke("Отключен $deviceName. Выключение точки доступа...", null)
                         scope.launch(Dispatchers.IO) {
-                            val (success, logs) = HotspotController.setHotspotEnabled(false)
+                            val (success, logs) = HotspotController.setHotspotEnabled(false, context)
                             val status = if (success) "Точка доступа ВЫКЛ" else "Ошибка выключения"
                             onStatusUpdate?.invoke("$status\n$logs", !success)
                             if (wakeLock.isHeld) wakeLock.release()
@@ -103,7 +103,7 @@ class BluetoothReceiver(
                     Log.d(TAG, "Bluetooth выключен на телефоне")
                     pendingDisconnectJob?.cancel()
                     scope.launch(Dispatchers.IO) {
-                        HotspotController.setHotspotEnabled(false)
+                        HotspotController.setHotspotEnabled(false, context)
                         onStatusUpdate?.invoke("Bluetooth выключен. Точка доступа отключена.", false)
                         if (wakeLock.isHeld) wakeLock.release()
                     }

@@ -60,6 +60,20 @@
             android:exported="false"
             android:foregroundServiceType="connectedDevice" />
 
+        <!-- Automated Quick Settings Switcher (No PC, Works when locked) -->
+        <service
+            android:name="com.pura.autohotspot.PuraAccessibilityService"
+            android:exported="true"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config" />
+        </service>
+
         <!-- Auto-start on boot -->
         <receiver
             android:name="com.pura.autohotspot.BootReceiver"

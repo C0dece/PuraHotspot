@@ -26,10 +26,10 @@ public final class ActivityMainBinding implements ViewBinding {
   public final MaterialButton btnBatteryOptimization;
 
   @NonNull
-  public final MaterialButton btnRefreshDevices;
+  public final MaterialButton btnEnableAccessibility;
 
   @NonNull
-  public final MaterialButton btnRequestShizuku;
+  public final MaterialButton btnRefreshDevices;
 
   @NonNull
   public final MaterialButton btnTestStartHotspot;
@@ -47,26 +47,31 @@ public final class ActivityMainBinding implements ViewBinding {
   public final MaterialSwitch switchService;
 
   @NonNull
+  public final TextView tvAccessibilityStatus;
+
+  @NonNull
   public final TextView tvLogs;
 
   @NonNull
   public final TextView tvShizukuStatus;
 
   private ActivityMainBinding(@NonNull ScrollView rootView,
-      @NonNull MaterialButton btnBatteryOptimization, @NonNull MaterialButton btnRefreshDevices,
-      @NonNull MaterialButton btnRequestShizuku, @NonNull MaterialButton btnTestStartHotspot,
-      @NonNull MaterialButton btnTestStopHotspot, @NonNull Spinner spDelay,
-      @NonNull Spinner spDevices, @NonNull MaterialSwitch switchService, @NonNull TextView tvLogs,
+      @NonNull MaterialButton btnBatteryOptimization,
+      @NonNull MaterialButton btnEnableAccessibility, @NonNull MaterialButton btnRefreshDevices,
+      @NonNull MaterialButton btnTestStartHotspot, @NonNull MaterialButton btnTestStopHotspot,
+      @NonNull Spinner spDelay, @NonNull Spinner spDevices, @NonNull MaterialSwitch switchService,
+      @NonNull TextView tvAccessibilityStatus, @NonNull TextView tvLogs,
       @NonNull TextView tvShizukuStatus) {
     this.rootView = rootView;
     this.btnBatteryOptimization = btnBatteryOptimization;
+    this.btnEnableAccessibility = btnEnableAccessibility;
     this.btnRefreshDevices = btnRefreshDevices;
-    this.btnRequestShizuku = btnRequestShizuku;
     this.btnTestStartHotspot = btnTestStartHotspot;
     this.btnTestStopHotspot = btnTestStopHotspot;
     this.spDelay = spDelay;
     this.spDevices = spDevices;
     this.switchService = switchService;
+    this.tvAccessibilityStatus = tvAccessibilityStatus;
     this.tvLogs = tvLogs;
     this.tvShizukuStatus = tvShizukuStatus;
   }
@@ -104,15 +109,15 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.btnRefreshDevices;
-      MaterialButton btnRefreshDevices = ViewBindings.findChildViewById(rootView, id);
-      if (btnRefreshDevices == null) {
+      id = R.id.btnEnableAccessibility;
+      MaterialButton btnEnableAccessibility = ViewBindings.findChildViewById(rootView, id);
+      if (btnEnableAccessibility == null) {
         break missingId;
       }
 
-      id = R.id.btnRequestShizuku;
-      MaterialButton btnRequestShizuku = ViewBindings.findChildViewById(rootView, id);
-      if (btnRequestShizuku == null) {
+      id = R.id.btnRefreshDevices;
+      MaterialButton btnRefreshDevices = ViewBindings.findChildViewById(rootView, id);
+      if (btnRefreshDevices == null) {
         break missingId;
       }
 
@@ -146,6 +151,12 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tvAccessibilityStatus;
+      TextView tvAccessibilityStatus = ViewBindings.findChildViewById(rootView, id);
+      if (tvAccessibilityStatus == null) {
+        break missingId;
+      }
+
       id = R.id.tvLogs;
       TextView tvLogs = ViewBindings.findChildViewById(rootView, id);
       if (tvLogs == null) {
@@ -159,8 +170,8 @@ public final class ActivityMainBinding implements ViewBinding {
       }
 
       return new ActivityMainBinding((ScrollView) rootView, btnBatteryOptimization,
-          btnRefreshDevices, btnRequestShizuku, btnTestStartHotspot, btnTestStopHotspot, spDelay,
-          spDevices, switchService, tvLogs, tvShizukuStatus);
+          btnEnableAccessibility, btnRefreshDevices, btnTestStartHotspot, btnTestStopHotspot,
+          spDelay, spDevices, switchService, tvAccessibilityStatus, tvLogs, tvShizukuStatus);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

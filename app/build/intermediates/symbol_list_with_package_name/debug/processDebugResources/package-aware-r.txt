@@ -3203,8 +3203,8 @@ id bounceBoth
 id bounceEnd
 id bounceStart
 id btnBatteryOptimization
+id btnEnableAccessibility
 id btnRefreshDevices
-id btnRequestShizuku
 id btnTestStartHotspot
 id btnTestStopHotspot
 id buttonPanel
@@ -3589,6 +3589,7 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tvAccessibilityStatus
 id tvLogs
 id tvShizukuStatus
 id unchecked
@@ -3840,6 +3841,7 @@ string abc_searchview_description_voice
 string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
+string accessibility_service_desc
 string androidx_startup
 string app_name
 string appbar_scrolling_view_behavior
@@ -5265,3 +5267,4 @@ styleable ViewPager2 android_orientation
 styleable ViewStubCompat android_id android_layout android_inflatedId
 styleable ViewTransition android_id SharedValue SharedValueId clearsTag duration ifTagNotSet ifTagSet motionInterpolator motionTarget onStateTransition pathMotionArc setsTag transitionDisable upDuration viewTransitionMode
 styleable include constraintSet
+xml accessibility_service_config

@@ -98,6 +98,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        updateAccessibilityStatus()
         updateShizukuStatus()
         loadPairedDevices()
         syncUiState()
@@ -130,22 +131,30 @@ class MainActivity : AppCompatActivity() {
         Shizuku.addBinderReceivedListenerSticky(binderReceivedListener)
         Shizuku.addBinderDeadListener(binderDeadListener)
         Shizuku.addRequestPermissionResultListener(requestPermissionResultListener)
+        updateAccessibilityStatus()
         updateShizukuStatus()
+    }
+
+    private fun updateAccessibilityStatus() {
+        val isAccRunning = PuraAccessibilityService.isRunning()
+        if (isAccRunning) {
+            binding.tvAccessibilityStatus.text = "🟢 Служба активна (Работает в кармане без ПК)"
+            binding.tvAccessibilityStatus.setTextColor(ContextCompat.getColor(this, R.color.status_green))
+            binding.btnEnableAccessibility.visibility = View.GONE
+        } else {
+            binding.tvAccessibilityStatus.text = "🔴 Служба не включена в системе"
+            binding.tvAccessibilityStatus.setTextColor(ContextCompat.getColor(this, R.color.status_red))
+            binding.btnEnableAccessibility.visibility = View.VISIBLE
+        }
     }
 
     private fun updateShizukuStatus() {
         if (!ShizukuManager.isShizukuAvailable()) {
-            binding.tvShizukuStatus.text = "🔴 Shizuku не запущен на телефоне\n(Запустите Shizuku через «Отладку по Wi-Fi»)"
-            binding.tvShizukuStatus.setTextColor(ContextCompat.getColor(this, R.color.status_red))
-            binding.btnRequestShizuku.visibility = View.GONE
+            binding.tvShizukuStatus.text = "⚪ Резервный Shizuku (ADB): не запущен"
         } else if (!ShizukuManager.hasPermission()) {
-            binding.tvShizukuStatus.text = "🟡 Shizuku запущен, требуется разрешение"
-            binding.tvShizukuStatus.setTextColor(ContextCompat.getColor(this, R.color.status_orange))
-            binding.btnRequestShizuku.visibility = View.VISIBLE
+            binding.tvShizukuStatus.text = "🟡 Резервный Shizuku: ожидает разрешения"
         } else {
-            binding.tvShizukuStatus.text = "🟢 Shizuku подключен и авторизован (ADB Shell)"
-            binding.tvShizukuStatus.setTextColor(ContextCompat.getColor(this, R.color.status_green))
-            binding.btnRequestShizuku.visibility = View.GONE
+            binding.tvShizukuStatus.text = "🟢 Резервный Shizuku: подключен (UID 2000)"
         }
     }
 
@@ -169,8 +178,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupListeners() {
-        binding.btnRequestShizuku.setOnClickListener {
-            ShizukuManager.requestPermission()
+        binding.btnEnableAccessibility.setOnClickListener {
+            val intent = Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)
+            startActivity(intent)
+            Toast.makeText(this, "Найдите «Pura Hotspot» в списке и включите", Toast.LENGTH_LONG).show()
         }
 
         binding.btnRefreshDevices.setOnClickListener {
@@ -185,9 +196,11 @@ class MainActivity : AppCompatActivity() {
                     binding.switchService.isChecked = false
                     return@setOnCheckedChangeListener
                 }
-                if (!ShizukuManager.hasPermission()) {
-                    Toast.makeText(this, "Требуется авторизовать Shizuku!", Toast.LENGTH_SHORT).show()
+                if (!PuraAccessibilityService.isRunning() && !ShizukuManager.hasPermission()) {
+                    Toast.makeText(this, "Включите службу Pura Hotspot в Спец. возможностях!", Toast.LENGTH_LONG).show()
                     binding.switchService.isChecked = false
+                    val intent = Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)
+                    startActivity(intent)
                     return@setOnCheckedChangeListener
                 }
 
@@ -208,7 +221,7 @@ class MainActivity : AppCompatActivity() {
         binding.btnTestStartHotspot.setOnClickListener {
             scope.launch {
                 appendLog("Ручной тест: включение точки доступа...")
-                val (success, logs) = HotspotController.setHotspotEnabled(true)
+                val (success, logs) = HotspotController.setHotspotEnabled(true, this@MainActivity)
                 appendLog(logs)
             }
         }
@@ -216,7 +229,7 @@ class MainActivity : AppCompatActivity() {
         binding.btnTestStopHotspot.setOnClickListener {
             scope.launch {
                 appendLog("Ручной тест: выключение точки доступа...")
-                val (success, logs) = HotspotController.setHotspotEnabled(false)
+                val (success, logs) = HotspotController.setHotspotEnabled(false, this@MainActivity)
                 appendLog(logs)
             }
         }

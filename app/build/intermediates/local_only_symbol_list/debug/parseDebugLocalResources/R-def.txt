@@ -13,13 +13,14 @@ color surface
 color text_secondary
 drawable ic_launcher_foreground
 id btnBatteryOptimization
+id btnEnableAccessibility
 id btnRefreshDevices
-id btnRequestShizuku
 id btnTestStartHotspot
 id btnTestStopHotspot
 id spDelay
 id spDevices
 id switchService
+id tvAccessibilityStatus
 id tvLogs
 id tvShizukuStatus
 layout activity_main
@@ -27,6 +28,7 @@ layout spinner_dropdown_item
 layout spinner_item
 mipmap ic_launcher
 mipmap ic_launcher_round
+string accessibility_service_desc
 string app_name
 string hotspot_off
 string hotspot_on
@@ -34,3 +36,4 @@ string service_monitoring
 string service_no_device
 string service_title
 style Theme.PuraHotspot
+xml accessibility_service_config

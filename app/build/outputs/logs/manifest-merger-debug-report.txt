@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:2:1-55:12
-INJECTED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:2:1-55:12
-INJECTED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:2:1-55:12
-INJECTED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:2:1-55:12
+ADDED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:2:1-68:12
+INJECTED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:2:1-68:12
+INJECTED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:2:1-68:12
+INJECTED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:2:1-68:12
 MERGED from [androidx.databinding:viewbinding:8.4.1] C:\Users\codece\.gradle\caches\transforms-4\d099a7e4173542473dd0460a055ad3c2\transformed\viewbinding-8.4.1\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\codece\.gradle\caches\transforms-4\a2fa2df259ada86de86f668fb2247d2c\transformed\material-1.12.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\codece\.gradle\caches\transforms-4\6fdf7f8c16c3856db06d29855eafccf0\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
@@ -101,8 +101,8 @@ ADDED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManif
 	android:name
 		ADDED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:18:22-92
 application
-ADDED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:20:5-53:19
-INJECTED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:20:5-53:19
+ADDED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:20:5-66:19
+INJECTED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:20:5-66:19
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\codece\.gradle\caches\transforms-4\a2fa2df259ada86de86f668fb2247d2c\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\codece\.gradle\caches\transforms-4\a2fa2df259ada86de86f668fb2247d2c\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\codece\.gradle\caches\transforms-4\6fdf7f8c16c3856db06d29855eafccf0\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -163,22 +163,42 @@ ADDED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManif
 		ADDED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:41:13-60
 	android:name
 		ADDED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:39:13-43
-receiver#com.pura.autohotspot.BootReceiver
-ADDED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:44:9-51:20
+service#com.pura.autohotspot.PuraAccessibilityService
+ADDED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:44:9-54:19
 	android:exported
-		ADDED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:46:13-36
+		ADDED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:47:13-36
+	android:permission
+		ADDED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:46:13-79
 	android:name
-		ADDED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:45:13-41
+		ADDED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:45:13-53
+intent-filter#action:name:android.accessibilityservice.AccessibilityService
+ADDED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:48:13-50:29
+action#android.accessibilityservice.AccessibilityService
+ADDED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:49:17-92
+	android:name
+		ADDED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:49:25-89
+meta-data#android.accessibilityservice
+ADDED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:51:13-53:72
+	android:resource
+		ADDED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:53:17-69
+	android:name
+		ADDED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:52:17-60
+receiver#com.pura.autohotspot.BootReceiver
+ADDED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:57:9-64:20
+	android:exported
+		ADDED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:59:13-36
+	android:name
+		ADDED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:58:13-41
 intent-filter#action:name:android.intent.action.BOOT_COMPLETED+action:name:android.intent.action.MY_PACKAGE_REPLACED
-ADDED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:47:13-50:29
+ADDED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:60:13-63:29
 action#android.intent.action.BOOT_COMPLETED
-ADDED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:48:17-79
+ADDED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:61:17-79
 	android:name
-		ADDED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:48:25-76
+		ADDED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:61:25-76
 action#android.intent.action.MY_PACKAGE_REPLACED
-ADDED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:49:17-84
+ADDED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:62:17-84
 	android:name
-		ADDED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:49:25-81
+		ADDED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml:62:25-81
 uses-sdk
 INJECTED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\Dev\Projects\Tools\AndroidHuaweiCommands\app\src\main\AndroidManifest.xml
